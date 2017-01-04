@@ -4,7 +4,7 @@ import re
 import bs4
 import sqlite3
 
-pattern = re.compile(r"/posts/(?P<year>\d\d\d\d)/(?P<month>\d\d)/(?P<day>\d\d)_(?P<index>\d+)\.html(?P<secret>s)?$")
+pattern = re.compile(r"/posts/(?P<year>\d\d\d\d)/(?P<month>\d\d)/(?P<day>\d\d)_(?P<index>\d+)\.html(?P<private>s)?$")
 connection = sqlite3.connect("backup.db")
 try:
     connection.execute("""CREATE TABLE `posts`(`id` INTEGER PRIMARY KEY, `title` TINYTEXT, `text` TEXT, `cdate` DATE NOT NULL, `mdate` DATE NOT NULL, `private` TINYINT NOT NULL)""")
